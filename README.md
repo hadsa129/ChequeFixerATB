@@ -39,14 +39,9 @@ PaddleOCR is utilized to extract the cheque ID, which is essential for identifyi
 For extracting the text written in words, we used PyTesseract, an open-source OCR tool that effectively handles handwritten and printed text. After segmenting the relevant parts of the cheque, PyTesseract is used to recognize and extract the amount written in words.
 
 ## Autocorrection
-### Error Detection
-The extracted amounts are cross-verified using rule-based validation and contextual checks. For instance, the numerical amount is compared with the literal amount to detect discrepancies. Additionally, amounts are validated against plausible ranges to catch errors.
 
-### NLP-based Correction
-We implemented a custom NLP model to correct errors in the handwritten text. The `num2words` library is used to convert numerical amounts into words for comparison. Dempster-Shafer theory is employed to handle uncertainty and provide probabilistic corrections.
+We implemented a custom NLP model to correct errors in the handwritten text. The `num2words` library is used to convert numerical amounts into words for comparison. For more complex corrections, a sequence-to-sequence (Seq2Seq) model is integrated into the system. This model is particularly useful for correcting errors that involve entire sequences of words, offering a sophisticated approach to error correction.
 
-### Sequence-to-Sequence Model
-For more complex corrections, a sequence-to-sequence (Seq2Seq) model is integrated into the system. This model is particularly useful for correcting errors that involve entire sequences of words, offering a sophisticated approach to error correction.
 
 ## Deployment
 The final application is deployed as a Django web application, featuring:
