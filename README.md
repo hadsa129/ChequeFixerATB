@@ -11,9 +11,7 @@ This project focuses on developing an application for the detection and automati
    - [PaddleOCR for Cheque ID Extraction](#paddleocr-for-cheque-id-extraction)
    - [PyTesseract for Text Extraction](#pytesseract-for-text-extraction)
 4. [Autocorrection](#autocorrection)
-   - [Error Detection](#error-detection)
-   - [NLP-based Correction](#nlp-based-correction)
-   - [Sequence-to-Sequence Model](#sequence-to-sequence-model)
+
 5. [Deployment](#deployment)
 6. [Conclusion](#conclusion)
 
