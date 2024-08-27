@@ -1,0 +1,144 @@
+{% extends 'admin_dashboard/base.html' %} {% block content %} {% load static %} {% load static %}
+<style>
+    main {
+        font-family: Arial, sans-serif;
+        background-image: url('/static/images/bk.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .cont {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .bg {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    .shadow {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .rounded {
+        border-radius: 0.5rem;
+    }
+    
+    .p4 {
+        padding: 1.5rem;
+    }
+    
+    .text {
+        font-size: 1.5rem;
+    }
+    
+    .font {
+        font-weight: 700;
+    }
+    
+    .mb4 {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .mb2 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .text-blue-500 {
+        color: #3b82f6;
+    }
+    
+    .hover\:underline:hover {
+        text-decoration: underline;
+    }
+    
+    .click-me {
+        display: inline-block;
+        width: 160px;
+        height: 50px;
+        background: #810101;
+        border: 1px solid #6b0101;
+        color: white;
+        text-align: center;
+        font-size: 22px;
+        line-height: 50px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background 0.5s;
+        margin-top: 20px;
+    }
+    
+    .click-me:hover {
+        background: #6b0101;
+    }
+    
+    p {
+        padding-top: 10px;
+        font-size: 19px;
+        color: #1a1a1a;
+        text-align: left;
+    }
+    
+    .btn-info {
+        display: block;
+        width: 140px;
+        height: 40px;
+        margin: 24px auto 0;
+        background: #920404;
+        border: none;
+        border-radius: 3px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        box-shadow: 0 2px 0 0 #7e0303;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .btn-info:hover {
+        background: #810101;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cheque-image {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+
+
+<main>
+    <div class="cont bg shadow rounded p4">
+
+
+        <h1 class="text font mb4">Cheque Processing Result</h1>
+        <p class="mb2"><strong>Cheque ID:</strong> {{ cheque.cheque_id }}</p>
+        <p class="mb2"><strong>Client Name:</strong> {{ cheque.client_name }}</p>
+        <p class="mb2"><strong>Amount in Digits:</strong> {{ cheque.amount_digits }}</p>
+        <p class="mb2"><strong>Amount in Words:</strong> {{ cheque.amount_words }}</p>
+        <p class="mb2"><strong>Date:</strong> {{ cheque.date }}</p>
+        <p class="mb2"><strong>Corrected Amount:</strong> {{ cheque.corrected_amount }}</p>
+        <p class="mb2"><strong>Is Correct:</strong> {{ cheque.is_correct|yesno:"Yes,No" }}</p>
+
+
+
+    </div>
+    <!-- Modal -->
+
+
+</main>{% endblock %}

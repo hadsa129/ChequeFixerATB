@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheque Details</title>
+    {% load static %}
+    <style>
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        
+        .click-me {
+            display: inline-block;
+            width: 160px;
+            height: 50px;
+            background: #810101;
+            border: 1px solid #6b0101;
+            color: white;
+            text-align: center;
+            font-size: 22px;
+            line-height: 50px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.5s;
+            margin-top: 20px;
+        }
+        
+        .click-me:hover {
+            background: #6b0101;
+        }
+        
+        p {
+            padding-top: 10px;
+            font-size: 19px;
+            color: #1a1a1a;
+            text-align: left;
+            /* Ensures text is aligned to the left */
+        }
+        
+        .btn-info {
+            display: block;
+            width: 140px;
+            height: 40px;
+            margin: 24px auto 0;
+            background: #920404;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            box-shadow: 0 2px 0 0 #7e0303;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .btn-info:hover {
+            box-shadow: #920404;
+        }
+        
+        .cheque-image {
+            max-width: 100%;
+            /* Assure que l'image ne dépasse pas la largeur du conteneur */
+            height: auto;
+            /* Conserve les proportions de l'image */
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/upload_result.css' %}">
+</head>
+
+<body>
+
+    <div class="container bg-white shadow-md rounded-lg p-6">
+        <h1 class="text-2xl font-bold mb-4">Cheque Processing Result</h1>
+
+        <!-- Display the uploaded cheque image -->
+
+
+
+        <p class="mb-2"><strong>Amount in Digits:</strong> {{ cheque.amount_digits }}</p>
+        <p class="mb-2"><strong>Amount in Words:</strong> {{ cheque.amount_words }}</p>
+
+        <p class="mb-2"><strong>Corrected Amount:</strong> {{ cheque.corrected_amount }}</p>
+        <p class="mb-2"><strong>Is Correct:</strong> {{ cheque.is_correct|yesno:"Yes,No" }}</p>
+
+        <!-- Button to go to details page -->
+        <a href="{% url 'inf' cheque_id=cheque.cheque_id %}" class="btn-info">Go to Details</a>
+    </div>
+
+</body>
+
+</html>
