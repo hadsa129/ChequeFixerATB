@@ -1,7 +1,7 @@
-# ChequeFixerATB:Autocorrection of Bank Cheques
+# ChequeFixerATB: Autocorrection of Bank Cheques
 
 ## Project Overview
-This project focuses on developing an application for the detection and automatic correction of errors in handwritten amounts on bank cheques. The main objective is to automate cheque processing, enhancing the efficiency and accuracy of bank operations. The project combines Optical Character Recognition (OCR), machine learning, and Natural Language Processing (NLP) techniques to extract and correct handwritten information from cheques.
+ChequeFixerATB is an application designed to detect and automatically correct errors in handwritten amounts on bank cheques. This project aims to automate cheque processing, improving both efficiency and accuracy in bank operations. It leverages Optical Character Recognition (OCR), machine learning, and Natural Language Processing (NLP) techniques to accurately extract and correct handwritten cheque information.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -11,43 +11,51 @@ This project focuses on developing an application for the detection and automati
    - [PaddleOCR for Cheque ID Extraction](#paddleocr-for-cheque-id-extraction)
    - [PyTesseract for Text Extraction](#pytesseract-for-text-extraction)
 4. [Autocorrection](#autocorrection)
-
 5. [Deployment](#deployment)
 6. [Conclusion](#conclusion)
+7. [Demo Video](#demo-video)
+8. [Internship Report](#internship-report)
 
 ## Introduction
-The primary challenge in cheque processing is accurately interpreting handwritten amounts, which are often prone to errors or illegible. This project aims to address these challenges by developing an automated solution that extracts amounts written in both words and digits, detects discrepancies, and corrects them using advanced NLP techniques.
+Cheque processing involves interpreting handwritten amounts, which can be challenging due to variations in handwriting quality and legibility. ChequeFixerATB addresses these challenges by developing an automated solution to extract amounts in both digits and words, detect discrepancies, and apply corrections using advanced NLP techniques.
 
 ## Data Preparation
-The dataset consists of 112 cheque images from four different banks in India, created using various pen ink colors and written by multiple volunteers. Each cheque image is preprocessed using techniques such as:
-- **Resizing:** Standardizing the image size for uniform processing.
-- **Grayscale Conversion:** Simplifying the image to reduce computational complexity.
-- **Binarization:** Converting the image to a binary format to distinguish text from the background.
-- **Cleaning:** Removing noise and irrelevant details from the image.
-- **Object Detection:** Isolating specific areas of interest, such as the cheque ID, amounts in digits, and amounts in words.
+The dataset includes 112 cheque images from four banks in India. Each image is processed using:
+- **Resizing:** Standardizes image size for uniform processing.
+- **Grayscale Conversion:** Reduces complexity by converting the image to grayscale.
+- **Binarization:** Converts the image to a binary format to enhance text-background differentiation.
+- **Cleaning:** Removes noise and irrelevant details from the image.
+- **Object Detection:** Isolates areas of interest, such as cheque IDs and amounts in digits and words.
 
 ## Segmentation and Extraction
 ### KNN for Digit Extraction
-For extracting the numerical amounts, we implemented a KNN (k-Nearest Neighbors) model. The digits are segmented from the cheque image, followed by data augmentation to improve the model’s accuracy. The KNN model then classifies the individual digits, enabling accurate extraction of the numerical amount.
+A KNN (k-Nearest Neighbors) model is used to extract numerical amounts from the cheque images. After segmenting the digits and performing data augmentation, the KNN model classifies each digit to determine the numerical amount.
 
 ### PaddleOCR for Cheque ID Extraction
-PaddleOCR is utilized to extract the cheque ID, which is essential for identifying and tracking the cheques. PaddleOCR, a lightweight and efficient OCR model, is employed due to its high accuracy in recognizing printed text.
+PaddleOCR is utilized for extracting cheque IDs, crucial for tracking and identifying cheques. Its high accuracy in text recognition makes it ideal for this task.
 
 ### PyTesseract for Text Extraction
-For extracting the text written in words, we used PyTesseract, an open-source OCR tool that effectively handles handwritten and printed text. After segmenting the relevant parts of the cheque, PyTesseract is used to recognize and extract the amount written in words.
+PyTesseract, an open-source OCR tool, is used for extracting handwritten amounts written in words. After segmenting relevant cheque sections, PyTesseract recognizes and extracts these amounts.
 
 ## Autocorrection
-
-We implemented a custom NLP model to correct errors in the handwritten text. The `num2words` library is used to convert numerical amounts into words for comparison. For more complex corrections, a sequence-to-sequence (Seq2Seq) model is integrated into the system. This model is particularly useful for correcting errors that involve entire sequences of words, offering a sophisticated approach to error correction.
-
+A custom NLP model corrects errors in the extracted handwritten text. The `num2words` library converts numerical amounts into words for comparison. Additionally, a Seq2Seq model handles complex corrections involving entire sequences of words, providing a robust solution for error correction.
 
 ## Deployment
-The final application is deployed as a Django web application, featuring:
+The application is deployed as a Django web application, featuring:
 - **User Authentication:** Secure login and registration.
-- **Cheque Processing Interface:** Upload, scan, and correct cheques.
+- **Cheque Processing Interface:** For uploading, scanning, and correcting cheques.
 - **Error Correction:** Automatic detection and correction of discrepancies.
-- **Data Visualization:** A PowerBI dashboard for analyzing cheque processing statistics.
+- **Data Visualization:** Integration of a PowerBI dashboard for analyzing cheque processing statistics.
 
 ## Conclusion
-This project successfully automates the detection and correction of errors in handwritten amounts on bank cheques, providing an efficient solution for banks. The integration of OCR, machine learning, and NLP technologies ensures accurate and reliable cheque processing, reducing manual effort and improving overall efficiency.
+ChequeFixerATB successfully automates the detection and correction of errors in handwritten cheque amounts. By integrating OCR, machine learning, and NLP technologies, the application enhances accuracy and efficiency in cheque processing, reducing manual effort for banks.
 
+## Demo Video
+Watch the demo video to see ChequeFixerATB in action:
+
+[![Demo Video]([https://www.youtube.com/watch?v=your_video_id](https://youtu.be/SGIrFg3bNRE))
+
+## Internship Report
+For a detailed overview of the project, including methodology, implementation, and results, refer to the full internship report:
+
+[Download the Internship Report]([link_to_your_report](https://github.com/hadsa129/ChequeFixerATB/blob/main/Rapport_atb.pdf))
